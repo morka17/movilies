@@ -8,8 +8,7 @@ import '../models/movie_video.dart';
 import '../models/movies.dart';
 import '../models/movies_search.dart';
 import '../models/result.dart';
-
-const APIKEY = "k_1bbvexzt";
+import '../secrets/imdb_api_key.dart';
 
 enum MovieOptions {
   top250Movies,

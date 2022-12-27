@@ -10,6 +10,9 @@ import 'package:movilies/src/models/movie.dart';
 import 'package:movilies/src/models/movies_search.dart';
 import 'package:movilies/src/providers/desc.dart';
 
+import '../components/app_button.dart';
+import '../components/circular_loading_indicator.dart';
+
 class DescriptionScreen extends StatefulWidget {
   final Movie? movie;
 
@@ -44,6 +47,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
             children: [
               DescriptionImageHolder(
                 imageURL: widget.movie!.image,
+                movieId: widget.movie!.id,
               ),
               Padding(
                 padding:
@@ -63,11 +67,11 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                     for (int i = 0;
                         i < int.parse(widget.movie!.imDbRating.split(".")[0]);
                         i++)
-                      Icon(
+                      const Icon(
                         Icons.star,
                         color: Colors.yellow,
                       ),
-                    Icon(
+                    const Icon(
                       Icons.star_half,
                       color: Colors.yellow,
                     )
@@ -75,8 +79,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                 ),
               ),
               const Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Text(
                   "StoryLine",
                   style: TextStyle(
@@ -89,21 +92,14 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: context.watch<DescProvider>().isLoading
-                    ? const Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.red,
-                        ),
-                      )
+                    ? const CircularLoadingIndicator()
                     : context.watch<DescProvider>().hasError
-                        ? Center(
-                            child: OutlinedButton(
-                              onPressed: () {},
-                              child: const Text("retry"),
-                            ),
+                        ? RetryButton(
+                            onPressed: () {},
                           )
                         : RichText(
                             text: TextSpan(
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.black54, fontSize: 16.0),
                               children: [
                                 TextSpan(
@@ -175,15 +171,14 @@ class _SearchedMovieDescriptionScreen
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Text(
                   widget.movie.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 19,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
               const Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Text(
                   "StoryLine",
                 ),
@@ -191,11 +186,7 @@ class _SearchedMovieDescriptionScreen
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: context.watch<DescProvider>().isLoading
-                    ? Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.red,
-                        ),
-                      )
+                    ? const CircularLoadingIndicator()
                     : context.watch<DescProvider>().hasError
                         ? Center(
                             child: OutlinedButton(

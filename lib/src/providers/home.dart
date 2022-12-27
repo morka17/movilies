@@ -11,7 +11,7 @@ import '../screens/views/notifications.dart';
 import '../screens/views/search.dart';
 
 class HomeProvider extends ChangeNotifier {
-  int _currentIndex = 2;
+  int _currentIndex = 0;
 
   static List<View> views = [
     View(widget: const HomeView(), title: HomeView.title),

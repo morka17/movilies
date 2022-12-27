@@ -8,7 +8,7 @@ class ChatsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const Text("Explore"),
+      child: const Text("Chats"),
     );
   }
 }

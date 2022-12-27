@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movilies/src/components/app_button.dart';
+import 'package:movilies/src/components/circular_loading_indicator.dart';
 import 'package:movilies/src/components/movie_tile.dart';
 import 'package:movilies/src/providers/desc.dart';
 import 'package:movilies/src/providers/search.dart';
@@ -14,11 +16,7 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: context.watch<SearchProvider>().isLoading
-          ? const Center(
-              child: CircularProgressIndicator(
-                color: Colors.red,
-              ),
-            )
+          ? const CircularLoadingIndicator()
           : context.watch<SearchProvider>().searchedMovies.isNotEmpty
               ? ListView.builder(
                   itemBuilder: (context, index) {
@@ -26,7 +24,7 @@ class SearchView extends StatelessWidget {
                         context.watch<SearchProvider>().searchedMovies[index];
                     return InkWell(
                       onTap: () {
-                        print("search $movie");
+                        // print("search $movie");
                         context.read<DescProvider>().getStoryLine(movie.id);
                         Navigator.push(context, MaterialPageRoute(builder: (_) {
                           return SearchedMovieDescriptionScreen(movie: movie);
@@ -39,11 +37,12 @@ class SearchView extends StatelessWidget {
                       context.watch<SearchProvider>().searchedMovies.length,
                 )
               : context.watch<SearchProvider>().hasError
-                  ? OutlinedButton(
-                      onPressed: () {},
-                      child: Text("retry"),
+                  ? RetryButton(
+                      onPressed: () {
+                        // context.read<SearchProvider>().searchMovie(expression)
+                      },
                     )
-                  : Center(
+                  : const Center(
                       child: Text("\"No Result\""),
                     ),
     );

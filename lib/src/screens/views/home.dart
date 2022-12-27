@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:movilies/src/components/app_button.dart';
+import 'package:movilies/src/components/circular_loading_indicator.dart';
 import 'package:movilies/src/models/movie.dart';
 import 'package:movilies/src/providers/explore.dart';
 import 'package:movilies/src/providers/home.dart';
@@ -32,8 +34,6 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
-
-
   void exploreRecommendedMovies() async {
     context.read<ExploreProvider>().movies =
         context.read<HomeProvider>().topTvsMovies;
@@ -51,24 +51,18 @@ class _HomeViewState extends State<HomeView> {
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: context.watch<HomeProvider>().isLoading
-          ? const Center(
-              child: CircularProgressIndicator(
-                color: Colors.redAccent,
-              ),
-            )
+          ? const CircularLoadingIndicator()
           : context.watch<HomeProvider>().hasError
               ? Container(
                   height: size.height - 90,
                   width: size.width,
                   alignment: Alignment.center,
-                  child: OutlinedButton(
+                  child: RetryButton(
                     onPressed: () {
                       loadingMovies();
                       setState(() {});
                     },
-                    child: Text("retry"),
-                  ),
-                )
+                  ))
               : Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
