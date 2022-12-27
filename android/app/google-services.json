@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1057135737184",
+    "project_id": "movilies",
+    "storage_bucket": "movilies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057135737184:android:a48dc353d3fd993af80605",
+        "android_client_info": {
+          "package_name": "com.example.movilies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057135737184-tka81autbp6uhvube07jmnad7vr1kfql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKUMFg9fEKFVwsgoSKekRcbBMuER5bQw8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057135737184-tka81autbp6uhvube07jmnad7vr1kfql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

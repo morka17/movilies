@@ -2,15 +2,29 @@
 
 A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+<div>
+  <img src="images/splash.jpg" alt='image' width=500>
+  <img src="images/signup.jpg" alt='image' width=500>
+</div>
 
-A few resources to get you started if this is your first Flutter project:
+<div>
+  <img src="images/signin" alt='image' width=500>
+  <img src="images/home.jpg" alt='image' width=500>
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<div>
+  <img src="images/explore.jpg" alt='image' width=500>
+  <img src="images/search.jpg" alt='image' width=500>
+</div>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div>
+  <img src="images/description.jpg" alt='image' width=500>
+  <img src="images/trailer.jpg" alt='image' width=500>
+</div>
+
+<div>
+  <video src="images/overview.mp4" controls="controls" style="max-width: 730px;">
+</video>
+</div>
+
